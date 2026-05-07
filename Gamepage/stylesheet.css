@@ -1,0 +1,1300 @@
+*{
+    margin-top: auto;
+    padding: 0;
+	font-family: "Mona Sans";
+	font-weight: bold;
+}
+
+header { 
+    position: fixed; 
+    right: 0; 
+    top: 0; 
+    z-index: 1000; 
+    width: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 33px 9%; 
+    background: #4b2020; 
+} 
+
+.logo{ 
+    font-size: 30px; 
+    font-weight: 700; 
+    color: white;
+}
+
+.navlist {
+    display: flex;
+	background: #4b2020; 
+}
+
+.navlist a { 
+    color: white; 
+    margin-left: 60px; 
+    font-size: 15px; 
+    font-weight: 600; 
+    border-bottom: 2px solid transparent; 
+    transition: all .55s ease; 
+}
+    
+.navlist a:hover{
+    border-bottom: 2px solid white;
+}
+
+#menu-icon{ 
+    color: white; 
+    font-size: 35px; 
+    z-index: 10001; 
+    cursor: pointer; 
+    display: none; 
+}
+
+@media (max-width: 990px){ 
+    #menu-icon{ 
+        display: block; 
+    } 
+    .navlist{ 
+        position: absolute; 
+        top: 100%; 
+        right: -100%; 
+        width: 300px; 
+        height: 40vh; 
+        background: #9577a9; 
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 50px 20px;
+        transition: all .55s ease;
+    }
+
+    .navlist a{
+        display: block;
+        margin: 7px 0;
+        margin-left: 0;
+    }
+
+    .navlist.open {
+        right: 0;
+    }
+}
+
+@media (max-width: 680px){ 
+    .hero-img img{ 
+        width: 100%; 
+        height: auto; 
+    } 
+}
+
+body {
+	background: Linear-gradient(245.59deg, #4b2020 0%, #c89292 28.53%, #f4f1ec 75.52%); ;
+	margin: 0px;
+	min-width: 100vh;
+	font-family: "Mona Sans";
+	font-weight: bold;
+	font-size: 20px;
+	align-items: center;
+	min-height: 100vh; 
+}
+
+
+@font-face {
+	font-family: "Mona Sans";
+	src: url("https://assets.codepen.io/64/Mona-Sans.woff2")
+		format("woff2 supports variations"),
+	  url("https://assets.codepen.io/64/Mona-Sans.woff2")
+		format("woff2-variations");
+	font-weight: 100 1000;
+  }
+  
+  @layer properties {
+	@property --bg-position {
+	  syntax: "<number>";
+	  inherits: true;
+	  initial-value: 100;
+	}
+	@property --after-blur {
+	  syntax: "<number>";
+	  inherits: true;
+	  initial-value: 0;
+	}
+	@property --after-opacity {
+	  syntax: "<number>";
+	  inherits: true;
+	  initial-value: 1;
+	}
+	@property --before-opacity {
+	  syntax: "<number>";
+	  inherits: true;
+	  initial-value: 0.3;
+	}
+	@property --btn-offset {
+	  syntax: "<number>";
+	  inherits: true;
+	  initial-value: 1;
+	}
+	@property --btn-scale {
+	  syntax: "<number>";
+	  inherits: true;
+	  initial-value: 1;
+	}
+  }
+  
+  
+  @supports (color: color(display-p3 0 0 0)) {
+	:root {
+	  --color-white: color(display-p3 1 1 1);
+	  --color-cyan: color(display-p3 0 1 1);
+	  --color-blue: color(display-p3 0 0 1);
+	  --color-purple: color(display-p3 0.5 0 1);
+	  --color-pink: color(display-p3 1 0.4 0.7);
+	  --color-red: color(display-p3 1 0 0);
+	  --color-yellow: color(display-p3 1 1 0);
+	  --color-lime: color(display-p3 0.75 1 0);
+  
+	  --color-orange: color(display-p3 0.96 0.39 0.2);
+	}
+  }
+  
+  *,
+  *:before,
+  *:after {
+	box-sizing: border-box;
+	outline: calc(var(--debug) * 1px) dotted red;
+	outline-offset: -1px;
+  }
+
+  
+  .styled-button {
+	  all: unset;
+	  background: #c89292;
+	  border-width: 8;
+	  border-color: #000000;
+	  transform: scale(var(--btn-scale));
+	  transition: 
+		  --bg-position 3s ease, 
+		  --after-blur 0.3s ease,
+		  --before-opacity 0.3s ease,
+		  --btn-offset 0.3s ease,
+		  --btn-scale 0.2s cubic-bezier(.76,-0.25,.51,1.13);
+	 }
+	 
+	 .styled-button div {
+		display: block;
+		padding: 0.8em 1.2em;
+		background: var(--btn-bg);
+		color: white;
+		font-weight: bold;
+		border-style: outset;
+		border-color: #000000;
+		border-radius: 8px;
+		font-size: 22px;
+		position: relative;
+		align-items: center;
+		cursor: pointer;
+	 }
+		:not(:hover) {
+		  transition: --after-blur 0.3s ease;
+		}
+  
+		.styled-button div span {
+		  background: linear-gradient(
+			  to right,
+			  var(--color-white),
+			  var(--color-white),
+			  var(--color-cyan),
+			  var(--color-blue),
+			  var(--color-purple),
+			  var(--color-pink),
+			  var(--color-red),
+			  var(--color-yellow),
+			  var(--color-lime),
+			  var(--color-white),
+			  var(--color-white)
+			)
+			no-repeat calc(var(--bg-position) * 1%) 0% / 900%;
+		  -webkit-background-clip: text;
+		  -webkit-text-fill-color: transparent;
+		  letter-spacing: 0.15ch;
+		  font-weight: 600;
+		  border-color: #000000;
+		}
+  
+		.styled-button div:after {
+		  display: block;
+		  position: absolute;
+		  content: "";
+		  width: 100%;
+		  height: 100%;
+		  background: var(--after-bg) no-repeat calc(var(--bg-position) * 1%) 0% /
+			900%;
+		  transform: translateY(calc(var(--after-pos-y) * 1px));
+		  left: 0;
+		  top: 0;
+		  z-index: -2;
+		  filter: blur(calc(var(--after-blur) * 1px));
+		  opacity: var(--after-opacity);
+		}
+  
+		.styled-button div:before {
+		  content: "";
+		  display: block;
+		  position: absolute;
+		  width: calc(100% + calc(calc(var(--btn-border-width) * 2) * 1px));
+		  height: calc(100% + calc(calc(var(--btn-border-width) * 2) * 1px));
+		  background: linear-gradient(
+			  to right,
+			  var(--color-white),
+			  var(--color-white),
+			  var(--color-cyan),
+			  var(--color-blue),
+			  var(--color-purple),
+			  var(--color-pink),
+			  var(--color-red),
+			  var(--color-yellow),
+			  var(--color-lime),
+			  var(--color-white),
+			  var(--color-white)
+			)
+			no-repeat calc(var(--bg-position) * 1%) 0% / 900%;
+		  border-radius: 9px;
+		  z-index: -1;
+		  top: calc(var(--btn-border-width) * -1px);
+		  left: calc(var(--btn-border-width) * -1px);
+		  opacity: var(--before-opacity);
+		}
+	  
+  
+		.styled-button:hover {
+		--btn-scale: 1.05;
+		--bg-position: 0;
+		--after-bg: linear-gradient(
+			to right,
+			var(--color-white),
+			var(--color-white),
+			var(--color-cyan),
+			var(--color-blue),
+			var(--color-purple),
+			var(--color-pink),
+			var(--color-red),
+			var(--color-yellow),
+			var(--color-lime),
+			var(--color-white),
+			var(--color-white)
+		  );
+		  --after-blur: 30;
+		  --after-opacity: 0.3;
+		  --after-pos-y: 0;
+		  --before-opacity: 1;      
+		  --btn-offset: 5;
+	  }
+	  .styled-button:active {
+		  --btn-scale: 0.98;
+		  --after-blur: 15;
+		}
+	  
+ 
+
+
+		:root {
+			--arrow-bg: rgba(255, 255, 255, 0.3);
+			--arrow-icon: url(images/Caret_down_font_awesome_whitevariation.png);
+			--option-bg: white;
+			--select-bg: rgba(255, 255, 255, 0.2);
+		  }
+		  * {
+			box-sizing: border-box;
+		  }
+
+		  /* <select> styles */
+		  select {
+			/* Reset */
+			appearance: none;
+			border: 0;
+			outline: 0;
+			font: inherit;
+			/* Personalize */
+			margin: 10px 0; 
+			width: 20rem;
+			height: 55px; 
+			padding: 1rem 4rem 1rem 1rem;
+			background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+			  linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+			border-radius: 0.25em;
+			box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+			cursor: pointer;
+			/* Remove IE arrow */
+		  } ::-ms-expand {
+			  display: none;
+			}
+			/* Remove focus outline */
+			:focus {
+			  outline: none;
+			}
+			/* <option> colors */
+			option {
+			  color: inherit;
+			  background-color: var(--option-bg);
+			}
+		  
+
+	input {
+		/* Reset */
+		appearance: none;
+		border: 1;
+		outline: 0;
+		font: inherit;
+		/* Personalize */
+		margin: 10px 0; 
+		width: 20rem;
+		height: 55px; 
+		padding: 1rem 4rem 1rem 1rem;
+		background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+		  linear-gradient(to left, 3em, var(--select-bg) 3em);
+		color: inherit;
+		border-radius: 0.25em;
+		box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+		cursor: pointer;
+	}
+	input text{
+		cursor: text;
+	}
+
+	input button {
+background-color: blue;
+color: #FFFFFF;
+	}
+
+.bid-button{
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	background: var(--btn-bg);
+	color: inherit;
+	font-weight: bold;
+	border-style: outset;
+	border-color: #000000;
+	border-radius: 8px;
+	font-size: 18px;
+	position: relative;
+	align-items: center;
+	cursor: pointer;
+}
+
+td {
+	font-size: 12px;
+	font-family: arial, sans-serif;
+	border: 5px solid #271b27;
+	text-align: center;
+	padding: 0px;
+	border-spacing: 0px;
+}
+
+#setup {
+	display: none;
+	justify-content: center;
+	min-height: 100vh;
+	min-width: 100vh;
+	flex-direction: column;
+	margin-top: 50px;
+	align-items: center; 
+}
+
+ button {
+	background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em, linear-gradient(to left, 3em, var(--select-bg) 3em);
+	color: inherit;
+	padding: 1rem 4rem 1rem 4rem;
+	border-radius: 0.25em;
+	box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	align-content: center;
+	text-align: center;
+	min-width: 50vh;
+		}
+
+.input-field{ 
+	width: 100%; 
+	height: 55px; 
+	padding: 0 15px; 
+	margin: 10px 0; 
+	color: #fff; 
+	background:rgba(255, 255, 255, 0.2); 
+	border: none; 
+	border-radius: 10px; 
+	outline: none; 
+	backdrop-filter: blur(28px); 
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#moneybar {
+	float: right;
+    border: 3px solid rgba(255, 255, 255, 0.3); 
+	background: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur (30px); 
+	margin: 15px;
+	border-radius: 5px;
+	display: none;
+	z-index: 14;
+	position: relative;
+	cursor: default;
+	-webkit-user-select: none;
+	user-select: none;
+	min-width: 50vh;
+}
+
+#moneybar table {
+	font-weight: bold;
+	border-spacing: 1px;
+}
+
+#moneybarwrap {
+	position: relative;
+	min-width: 135px;
+	top: 0px;
+	right: 0px;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#propertystats {
+	margin-right: 110px;
+}
+
+#refresh {
+	display: none;
+	margin: 15px;
+}
+
+#noF5 {
+	display: none;
+}
+
+#noscript {
+	margin-left: 10px;
+}
+
+#board {
+	display: none;
+	border: 5px solid #7c5c36;
+	border-spacing: 0px;
+	margin: 25px;
+	float: left;
+	margin-top: 100px;
+	justify-content: center;
+	min-height: 100vh;
+} 
+
+#jail {
+	border: 1px solid #271b27;
+	height: 65px;
+	width: 65px;
+	position: relative;
+	top: 73px;
+	left: -73px;
+	z-index: 2;
+}
+
+
+#control {
+	position: absolute;
+	z-index: 9;
+	top: 350px;
+	right: 310px;
+	border: 2px solid #271b27;
+	padding: 10px;
+	display: none;
+    border: 3px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 30px; 
+	background-color: #c89292;
+    backdrop-filter: blur(20px); 
+}
+
+#quickstats {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: arial, sans-serif;
+	border: 2px solid blue;
+	margin: 5px;
+	padding: 3px;
+	width: 80px;
+}
+
+#pname {
+color: #271b27;
+}
+
+#landed {
+	padding: 3px;
+	border: 1px solid gray;
+	border-top: none;
+	width: 302px;
+
+	margin: 0px;
+	text-align: center;
+}
+
+#alert {
+	width: 307px;
+	height: 92px;
+	margin: 0px;
+	padding-left: 1px;
+	border: 1px solid gray;
+	font-family: Consolas, "Courier New", monospace;
+	font-size: 13px;
+	background-color: #FFFFFF;
+	overflow-y: scroll;
+}
+
+#manage {
+	width: 308px;
+	border: 1px solid gray;
+	display: none;
+}
+
+#option {
+	border-bottom: 1px solid gray;
+	background-color: white;
+	display: none;
+	background: white;
+	vertical-align: middle;
+	padding: 3px;
+	text-align: center;
+	min-height: 26px;
+}
+
+#buildings {
+	margin: auto;
+	height: 21px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#buildings .house {
+	width: 25px;
+	height: 19px;
+	vertical-align: top;
+	float: none;
+}
+
+#buildings .hotel {
+	width: 26px;
+	height: 19px;
+	vertical-align: top;
+	float: none;
+}
+
+#owned {
+	padding: 3px 0px;
+	background-color: white;
+	text-align: center;
+	max-height: 390px;
+	overflow-y: auto;
+}
+
+#owned .propertycellname {
+	vertical-align: top;
+}
+
+#property {
+	margin-right: 1px;
+	background: white;
+}
+
+#trade {
+	border: 2px solid black;
+	display: none;
+	width: 630px;
+	margin: 15px auto;
+	background-color: white;
+	border-radius: 8px;
+	padding: 2px;
+	z-index: 14;
+}
+
+#trade-leftp-name {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#trade-leftp-name option {
+	font-size: 13px;
+	font-weight: normal;
+}
+
+#trade-rightp-name {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#trade-rightp-name option {
+	font-size: 13px;
+	font-weight: normal;
+}
+
+#trade-leftp-money {
+	width: 90%;
+}
+
+#trade-rightp-money {
+	width: 90%;
+}
+
+#deedcolor {
+	background: white;
+	width: 100%;
+	height: 48px;
+}
+
+#deedname {
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: white;
+}
+
+#menu {
+	width: 290px;
+	height: 32px;
+	margin: 0px 10px;
+}
+
+#menutable {
+	padding: 0px;
+	text-align: left;
+	font-family: arial, sans-serif;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	border: 1px solid blue;
+	border-radius: 5px 5px 0px 0px;
+	height: 30px;
+	width: 99%;
+	margin: 0px;
+	background-color: #305BC9;
+	/* background-image: -webkit-linear-gradient(bottom,#213EB2,#4787ED);
+	background-image: -moz-linear-gradient(bottom,#213EB2,#4787ED); */
+	background-image: url(images/menu_background.png);
+	/* background-repeat: repeat-x; */
+	overflow: hidden;
+}
+
+#menutable td {
+	vertical-align: top;
+}
+
+#menu a {
+	color: #FFFFFF;
+	text-decoration: none;
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding-top: 8px;
+}
+
+#buy-menu-item {
+	color: #FFFFFF;
+	margin-left: 2px;
+	border-left: none;
+}
+
+#trade-menu-item {
+	color: #AAAAAA;
+	border-right: none;
+	margin-right: 2px;
+}
+
+
+#popup {
+	width: 300px;
+	min-width: 300px;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px;
+	text-align: center;
+	word-wrap: break-word;
+	line-height: 1.5;
+	border: 2px solid #271b27;
+	border-radius: 10px;
+	background-color: white;
+	display: block;
+	z-index: 13;
+	margin: auto;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#popupwrap {
+	position: absolute;
+	top: 255px;
+	left: 0px;
+	width: 100%;
+	display: none;
+	background-color: transparent;
+	z-index: 13;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#popuptext {
+	overflow-x: auto;
+	position: relative;
+	margin: 8px 8px 8px 8px; 
+	display: block;
+}
+
+/* #popupclose {
+	display: none;
+	position: absolute;
+	top: -24px;
+	right: -25px;
+	width: 30px;
+	height: 30px;
+	border: none;
+	cursor: pointer;
+	overflow: visible;
+	z-index: 12;
+} */
+
+#popupclose input {
+	margin: 0px;
+	background-color: red;
+	height: 18px;
+	width: 18px;
+	padding: 0px;
+}
+
+#popupbackground {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: #000000;
+	opacity: 0.5;
+	display: none;
+	z-index: 10;
+}
+
+#popupdrag {
+	width: 100%;
+	height: 16px;
+	position: absolute;
+	top: -16px;
+	cursor: move;
+}
+
+#stats {
+	max-width: 914px;
+	min-width: 454px;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px;
+	text-align: center;
+	word-wrap: break-word;
+	line-height: 1.5;
+	border: 2px solid black;
+	border-radius: 10px;
+	background-color: white;
+	display: block;
+	z-index: 17;
+	margin: auto;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#statswrap {
+	position: absolute;
+	top: 250px;
+	left: 0px;
+	width: 100%;
+	display: none;
+	background-color: transparent;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#statstext {
+	overflow: hidden;
+	min-height: 70px;
+}
+
+#statsclose {
+	display: block;
+	position: absolute;
+	top: -24px;
+	right: -25px;
+	width: 30px;
+	height: 30px;
+	border: none;
+	cursor: pointer;
+	overflow: visible;
+	z-index: 17;
+}
+
+#statsbackground {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: #000000;
+	opacity: .5;
+	display: none;
+	z-index: 16;
+}
+
+#statsdrag {
+	width: 100%;
+	height: 16px;
+	position: absolute;
+	top: -16px;
+	cursor: move;
+}
+
+#deed {
+	display: none;
+	position: fixed;
+	border: 2px solid black;
+	width: 235px;
+	height: 275px;
+	background-color: white;
+	z-index: 18;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#deed td{
+	border: none;
+}
+
+#deed-header {
+	width: 215px;
+	height: 48px;
+	border: 1px solid #271b27;
+	margin: 9px;
+	background-color: yellow;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: Calibri, Arial;
+}
+
+#deed-name {
+	font-size: 15px;
+	font-weight: bold;
+
+}
+
+#deed-table {
+	margin: 9px;
+	width: 217px;
+	border-spacing: 1px;
+}
+
+#deed-mortgaged {
+	font-family: Calibri, Arial;
+	font-size: 16px;
+	text-align: center;
+
+}
+
+#deed-mortgaged-name {
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 30px 20px 20px;
+}
+
+#deed-special {
+	font-family: Calibri, Arial;
+	text-align: justify;
+}
+
+#deed-special-name {
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 2px 0px;
+	text-transform: uppercase;
+	margin: 50px 20px 20px;
+}
+
+#deed-special-text {
+	margin: 20px;
+	font-size: 15px;
+}
+
+#deed-special-footer {
+	margin: 0px 20px;
+	width: 195px;
+	position: absolute;
+	bottom: 20px;
+	font-size: 16px;
+}
+
+#enlarge-wrap {
+	border: none;
+	z-index: 0;
+}
+
+.menu-item:hover {
+	/* background-image: -webkit-linear-gradient(bottom,#000080,#4787ED);
+	background-image: -moz-linear-gradient(bottom,#000080,#4787ED); */
+
+	background-image: url(images/menu_background_hover.png);
+}
+
+.menu-item {
+	padding: 0px;
+	border-collapse: collapse;
+	text-align: center;
+    vertical-align: middle;
+	display: table-cell;
+	background-color: transparent;
+	border: none;
+	border-right: 2px solid white;
+	height: 30px;
+	min-width: 90px;
+	width: 90px;
+	max-width: 90px;
+	overflow: hidden;
+}
+
+
+.die {
+	display: none;
+	margin: 5px;
+	float: left;
+}
+
+.die-no-img {
+
+
+	border-radius: 6px;
+	font-weight: bold;
+	border: 2px solid black;
+	padding: 5px 10px;
+}
+.house {
+	width: 25px;
+	height: 19px;
+	vertical-align: middle;
+	float: right;
+}
+
+.hotel {
+	width: 26px;
+	height: 19px;
+	vertical-align: middle;
+	float: right;
+}
+
+.cell {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	padding: 0px;
+	border-spacing: 0px;
+	vertical-align: middle;
+    align-items: center;
+    text-align: center;
+	border-width: 2px;
+    border-color: #271b27;
+	background-repeat: no-repeat;
+	background-size: auto 40px;
+}
+
+.board-center {
+	border: none;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.board-corner {
+	display:block;
+	width: 102px;
+	height: 102px;
+	padding: 0%;
+	background-repeat: no-repeat;
+	background-size: auto 40px;
+}
+
+.board-corner img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	padding: 0px;
+	border-spacing: 0px;
+}
+
+.board-top {
+	width: 102px;
+	height: 102px;
+    border-color: #271b27;
+	vertical-align: middle;
+	text-align: center;
+	align-items: center;
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+}
+
+
+.board-bottom {
+	width: 102px;
+	height: 102px;
+	vertical-align: middle;
+	text-align: center;
+	align-items: center;
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+}
+
+.board-left {
+	width: 102px;
+	height: 102px;
+	vertical-align: middle;
+	text-align: center;
+	align-items: center;
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+}
+
+.board-right {
+	width: 102px;
+	height: 102px;
+	vertical-align: middle;
+	text-align: center;
+	align-items: center;
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+}
+
+
+.enlarge {
+	width: 150px;
+	height: 200px;
+	display: none;
+	background-color: white;
+	border: 2px solid #271b27;
+	text-align: center;
+	font-size: 12px;
+	font-family: arial, sans-serif;
+	position: fixed;
+	z-index: 15;
+}
+
+.enlarge-color {
+	background: white;
+	width: 100%;
+	height: 40px;
+}
+
+.enlarge-name {
+	font-weight: bold;
+	font-size: 20px;
+	background-color: white;
+	height: 45px;
+}
+
+.enlarge-price {
+	background-color: white;
+	vertical-align: bottom;
+	height: 25px;
+}
+
+.enlarge-token {
+	height: 45px;
+	width: 150px;
+}
+
+.moneybarcell {
+	width: auto;
+	min-width: 50vh;
+}
+
+.moneybararrowcell {
+    border: 3px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 30px; 
+	background-color: #c89292;
+    backdrop-filter: blur(20px); 
+	width: 30px;
+	border: none;
+	text-align: right;
+	padding: 0px;
+}
+
+
+.money-bar-arrow {
+	height: 30px;
+	width: 30px;
+}
+.propertycellcheckbox {
+	width: 20px;
+	height: 20px;
+	border: none;
+	vertical-align: middle;
+}
+
+.propertycellcolor {
+	padding: 0px;
+	width: 20px;
+	height: 20px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: white;
+}
+
+.propertycellname {
+	height: 20px;
+	width: 250px;
+	border: none;
+	cursor: default;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.propertycelldeed {
+	width: 18px;
+	height: 20px;
+	border: 1px solid grey;
+	cursor: pointer;
+	display: none;
+}
+
+.statscellcolor {
+	padding: 0px;
+	width: 22px;
+	height: 20px;
+	border: none;
+}
+
+.statscellname {
+	height: 20px;
+	border: none;
+	cursor: default;
+	text-align: left;
+	min-width: 172px;
+}
+
+.statsplayername {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.statscell {
+	border: 2px solid black;
+	padding: 8px;
+	vertical-align: top;
+	width: 202px;
+	min-width: 115px;
+}
+
+.trade-cell {
+	border: none;
+	border-radius: 3px;
+	width: 308px;
+	height: 26px;
+	vertical-align: middle;
+}
+
+.cell-anchor {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	bottom: 0px;
+	left: 0px;
+}
+
+.cell-name {
+	display: none;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	text-align: center;
+    vertical-align: middle;
+    align-items: center;
+	width: 100%;
+}
+
+.cell-position-holder {
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	position: relative;
+    border-color: #271b27;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cell-position {
+	height: 12px;
+	width: 12px;
+	position: absolute;
+    align-items: center;
+	top: 0px;
+	left: 0px;
+}
+
+.cell-owner {
+	background-size: cover;
+	display: none;
+	position: absolute;
+}
+
+.board-top .cell-owner {
+	background-image: url("images/hori-bar.png");
+
+	height: 15px;
+	left: 0px;
+
+
+
+	top: -25px;
+	width: 72px;
+
+}
+
+.board-bottom .cell-owner {
+	background-image: url("images/hori-bar.png");
+	bottom: -25px;
+
+	height: 15px;
+
+
+
+
+	left: 0px;
+	width: 72px;
+}
+
+.board-left .cell-owner {
+	background-image: url("images/vert-bar.png");
+
+	height: 68px;
+	left: -25px;
+
+
+
+	top: 0px;
+	width: 15px;
+
+}
+
+.board-right .cell-owner {
+	background-image: url("images/vert-bar.png");
+
+	height: 68px;
+	right: -25px;
+
+
+
+	top: 0px;
+	width: 15px;
+
+}
